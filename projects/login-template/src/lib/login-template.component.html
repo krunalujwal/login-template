@@ -1,0 +1,23 @@
+<div class="form-page" fxLayout="column" fxFill fxLayoutAlign="center start">
+    <form fxLayout="column" [formGroup]="fromGroup" (ngSubmit)="onSubmit(fromGroup.value,fromGroup.valid)" novalidate>
+        <h1>{{options.title || 'Login'}}</h1>
+        <div class="form-field ui-float-label">
+            <input id="username" pInputText type="text" size="30" formControlName="username">
+            <label for="username">Username</label>
+            <div *ngIf="submittedForm && fromGroup.get('username').errors" class="help-block">
+                Username is required
+            </div>
+        </div>
+        <div class="form-field ui-float-label">
+            <input id="password" type="password" size="30" pInputText formControlName="password">
+            <label for="password">Password</label>
+            <div *ngIf="submittedForm && fromGroup.get('password').errors" class="help-block">
+                Password is required
+            </div>
+        </div>
+        <div class="forgt-rem-div" fxLayout="row" fxLayoutAlign="space-between center">
+            <!--   <a routerLink="/forgot-password">Forgot Password?</a> -->
+        </div>
+        <button class="btn-grade" pButton [label]="options.btnLabel || 'Submit'"></button>
+    </form>
+</div>
