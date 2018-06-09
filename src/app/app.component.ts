@@ -19,4 +19,8 @@ export class AppComponent {
     };
     // console.log('options APP', this.options);
   }
+
+  onSubmit(event) {
+    console.log('onSubmit APP', event);
+  }
 }

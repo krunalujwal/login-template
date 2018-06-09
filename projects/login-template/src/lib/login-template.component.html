@@ -1,5 +1,5 @@
 <div class="form-page" fxLayout="column" fxFill fxLayoutAlign="center start">
-    <form fxLayout="column" [formGroup]="fromGroup" (ngSubmit)="onSubmit(fromGroup.value,fromGroup.valid)" novalidate>
+    <form fxLayout="column" [formGroup]="fromGroup" (ngSubmit)="formSubmit(fromGroup.value,fromGroup.valid)" novalidate>
         <h1>{{options.title || 'Login'}}</h1>
         <div class="form-field ui-float-label">
             <input id="username" pInputText type="text" size="30" formControlName="username">

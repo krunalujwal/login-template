@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LoginTemplateProperties } from './login-template-properties';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginTemplateService } from './login-template.service';
@@ -10,6 +10,8 @@ import { LoginTemplateService } from './login-template.service';
 })
 export class LoginTemplateComponent implements OnInit {
   @Input() options: LoginTemplateProperties;
+  @Output() onSubmit: EventEmitter<any> = new EventEmitter();
+
   fromGroup: FormGroup = new FormGroup({});
   user: any = {};
   rememberMe = false;
@@ -28,10 +30,11 @@ export class LoginTemplateComponent implements OnInit {
     // console.log('options LT', this.options);
   }
 
-  onSubmit(values, valid) {
+  formSubmit(values, valid) {
     this.submittedForm = true;
     if (valid) {
-      this.loginTemplateService.checkLogin(values, this.options);
+      this.onSubmit.emit(values);
+      // this.loginTemplateService.checkLogin(values, this.options);
     }
   }
 
