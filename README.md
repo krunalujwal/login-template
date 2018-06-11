@@ -1,5 +1,5 @@
 # login-template
-//   Dependencies 
+ Dependencies 
  
 * npm install primeng --save
 * npm install primeicons --save
